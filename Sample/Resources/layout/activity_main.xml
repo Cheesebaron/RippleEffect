@@ -1,0 +1,100 @@
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2014 Robin Chutaux
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@android:color/holo_blue_dark">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/app_name"
+            android:layout_marginLeft="25dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+
+
+      <cheesebaron.rippleeffect.RippleView
+          android:id="@+id/more"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:layout_toLeftOf="@+id/more2"
+            android:layout_margin="5dp"
+            ripple:rvCentered="true">
+            <ImageView
+                android:layout_width="?android:actionBarSize"
+                android:layout_height="?android:actionBarSize"
+                android:src="@android:drawable/ic_menu_edit"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
+                android:background="@android:color/holo_blue_dark"/>
+        </cheesebaron.rippleeffect.RippleView>
+
+      <cheesebaron.rippleeffect.RippleView
+          android:id="@+id/more2"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            ripple:rvType="doubleRipple">
+        <ImageView
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:src="@drawable/ic_profil_plus"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:background="@android:color/holo_blue_dark"/>
+        </cheesebaron.rippleeffect.RippleView>
+
+    </RelativeLayout>
+
+  <cheesebaron.rippleeffect.RippleView
+      android:id="@+id/rect"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/actionbar"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:text="Hello World!"
+            android:background="@android:color/holo_green_light"/>
+
+    </cheesebaron.rippleeffect.RippleView>
+
+</RelativeLayout>
