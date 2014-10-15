@@ -27,27 +27,30 @@ namespace Sample
 		public static void UpdateIdValues()
 		{
 			global::Cheesebaron.RippleEffect.Resource.Animation.zoom = global::Sample.Resource.Animation.zoom;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvAlpha = global::Sample.Resource.Attribute.rvAlpha;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvCentered = global::Sample.Resource.Attribute.rvCentered;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvColor = global::Sample.Resource.Attribute.rvColor;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvFramerate = global::Sample.Resource.Attribute.rvFramerate;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvRippleDuration = global::Sample.Resource.Attribute.rvRippleDuration;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvType = global::Sample.Resource.Attribute.rvType;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvZoom = global::Sample.Resource.Attribute.rvZoom;
-			global::Cheesebaron.RippleEffect.Resource.Attribute.rvZoomDuration = global::Sample.Resource.Attribute.rvZoomDuration;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_alpha = global::Sample.Resource.Attribute.rv_alpha;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_centered = global::Sample.Resource.Attribute.rv_centered;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_color = global::Sample.Resource.Attribute.rv_color;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_framerate = global::Sample.Resource.Attribute.rv_framerate;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_rippleDuration = global::Sample.Resource.Attribute.rv_rippleDuration;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_ripplePadding = global::Sample.Resource.Attribute.rv_ripplePadding;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_type = global::Sample.Resource.Attribute.rv_type;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_zoom = global::Sample.Resource.Attribute.rv_zoom;
+			global::Cheesebaron.RippleEffect.Resource.Attribute.rv_zoomDuration = global::Sample.Resource.Attribute.rv_zoomDuration;
 			global::Cheesebaron.RippleEffect.Resource.Color.@__rippleViewDefaultColor = global::Sample.Resource.Color.@__rippleViewDefaultColor;
 			global::Cheesebaron.RippleEffect.Resource.Drawable.shape_rounded = global::Sample.Resource.Drawable.shape_rounded;
 			global::Cheesebaron.RippleEffect.Resource.Id.doubleRipple = global::Sample.Resource.Id.doubleRipple;
+			global::Cheesebaron.RippleEffect.Resource.Id.rectangle = global::Sample.Resource.Id.rectangle;
 			global::Cheesebaron.RippleEffect.Resource.Id.simpleRipple = global::Sample.Resource.Id.simpleRipple;
 			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView = global::Sample.Resource.Styleable.RippleView;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvAlpha = global::Sample.Resource.Styleable.RippleView_rvAlpha;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvCentered = global::Sample.Resource.Styleable.RippleView_rvCentered;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvColor = global::Sample.Resource.Styleable.RippleView_rvColor;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvFramerate = global::Sample.Resource.Styleable.RippleView_rvFramerate;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvRippleDuration = global::Sample.Resource.Styleable.RippleView_rvRippleDuration;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvType = global::Sample.Resource.Styleable.RippleView_rvType;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvZoom = global::Sample.Resource.Styleable.RippleView_rvZoom;
-			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rvZoomDuration = global::Sample.Resource.Styleable.RippleView_rvZoomDuration;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_alpha = global::Sample.Resource.Styleable.RippleView_rv_alpha;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_centered = global::Sample.Resource.Styleable.RippleView_rv_centered;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_color = global::Sample.Resource.Styleable.RippleView_rv_color;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_framerate = global::Sample.Resource.Styleable.RippleView_rv_framerate;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_rippleDuration = global::Sample.Resource.Styleable.RippleView_rv_rippleDuration;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_ripplePadding = global::Sample.Resource.Styleable.RippleView_rv_ripplePadding;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_type = global::Sample.Resource.Styleable.RippleView_rv_type;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_zoom = global::Sample.Resource.Styleable.RippleView_rv_zoom;
+			global::Cheesebaron.RippleEffect.Resource.Styleable.RippleView_rv_zoomDuration = global::Sample.Resource.Styleable.RippleView_rv_zoomDuration;
 		}
 		
 		public partial class Animation
@@ -70,28 +73,31 @@ namespace Sample
 		{
 			
 			// aapt resource value: 0x7f010000
-			public const int rvAlpha = 2130771968;
+			public const int rv_alpha = 2130771968;
 			
 			// aapt resource value: 0x7f010005
-			public const int rvCentered = 2130771973;
+			public const int rv_centered = 2130771973;
 			
 			// aapt resource value: 0x7f010004
-			public const int rvColor = 2130771972;
+			public const int rv_color = 2130771972;
 			
 			// aapt resource value: 0x7f010001
-			public const int rvFramerate = 2130771969;
+			public const int rv_framerate = 2130771969;
 			
 			// aapt resource value: 0x7f010002
-			public const int rvRippleDuration = 2130771970;
-			
-			// aapt resource value: 0x7f010006
-			public const int rvType = 2130771974;
+			public const int rv_rippleDuration = 2130771970;
 			
 			// aapt resource value: 0x7f010007
-			public const int rvZoom = 2130771975;
+			public const int rv_ripplePadding = 2130771975;
+			
+			// aapt resource value: 0x7f010006
+			public const int rv_type = 2130771974;
+			
+			// aapt resource value: 0x7f010008
+			public const int rv_zoom = 2130771976;
 			
 			// aapt resource value: 0x7f010003
-			public const int rvZoomDuration = 2130771971;
+			public const int rv_zoomDuration = 2130771971;
 			
 			static Attribute()
 			{
@@ -166,23 +172,32 @@ namespace Sample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050006
-			public const int action_settings = 2131034118;
+			// aapt resource value: 0x7f050009
+			public const int action_settings = 2131034121;
 			
-			// aapt resource value: 0x7f050002
-			public const int actionbar = 2131034114;
+			// aapt resource value: 0x7f050003
+			public const int actionbar = 2131034115;
+			
+			// aapt resource value: 0x7f050008
+			public const int button_floating_action = 2131034120;
 			
 			// aapt resource value: 0x7f050001
 			public const int doubleRipple = 2131034113;
 			
-			// aapt resource value: 0x7f050003
-			public const int more = 2131034115;
+			// aapt resource value: 0x7f050007
+			public const int floating = 2131034119;
 			
 			// aapt resource value: 0x7f050004
-			public const int more2 = 2131034116;
+			public const int more = 2131034116;
 			
 			// aapt resource value: 0x7f050005
-			public const int rect = 2131034117;
+			public const int more2 = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int rect = 2131034118;
+			
+			// aapt resource value: 0x7f050002
+			public const int rectangle = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int simpleRipple = 2131034112;
@@ -278,31 +293,35 @@ namespace Sample
 					2130771972,
 					2130771973,
 					2130771974,
-					2130771975};
+					2130771975,
+					2130771976};
 			
 			// aapt resource value: 0
-			public const int RippleView_rvAlpha = 0;
+			public const int RippleView_rv_alpha = 0;
 			
 			// aapt resource value: 5
-			public const int RippleView_rvCentered = 5;
+			public const int RippleView_rv_centered = 5;
 			
 			// aapt resource value: 4
-			public const int RippleView_rvColor = 4;
+			public const int RippleView_rv_color = 4;
 			
 			// aapt resource value: 1
-			public const int RippleView_rvFramerate = 1;
+			public const int RippleView_rv_framerate = 1;
 			
 			// aapt resource value: 2
-			public const int RippleView_rvRippleDuration = 2;
-			
-			// aapt resource value: 6
-			public const int RippleView_rvType = 6;
+			public const int RippleView_rv_rippleDuration = 2;
 			
 			// aapt resource value: 7
-			public const int RippleView_rvZoom = 7;
+			public const int RippleView_rv_ripplePadding = 7;
+			
+			// aapt resource value: 6
+			public const int RippleView_rv_type = 6;
+			
+			// aapt resource value: 8
+			public const int RippleView_rv_zoom = 8;
 			
 			// aapt resource value: 3
-			public const int RippleView_rvZoomDuration = 3;
+			public const int RippleView_rv_zoomDuration = 3;
 			
 			static Styleable()
 			{

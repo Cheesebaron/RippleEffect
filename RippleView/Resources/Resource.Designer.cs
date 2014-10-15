@@ -44,28 +44,31 @@ namespace Cheesebaron.RippleEffect
 		{
 			
 			// aapt resource value: 0x7f010000
-			public static int rvAlpha = 2130771968;
+			public static int rv_alpha = 2130771968;
 			
 			// aapt resource value: 0x7f010005
-			public static int rvCentered = 2130771973;
+			public static int rv_centered = 2130771973;
 			
 			// aapt resource value: 0x7f010004
-			public static int rvColor = 2130771972;
+			public static int rv_color = 2130771972;
 			
 			// aapt resource value: 0x7f010001
-			public static int rvFramerate = 2130771969;
+			public static int rv_framerate = 2130771969;
 			
 			// aapt resource value: 0x7f010002
-			public static int rvRippleDuration = 2130771970;
-			
-			// aapt resource value: 0x7f010006
-			public static int rvType = 2130771974;
+			public static int rv_rippleDuration = 2130771970;
 			
 			// aapt resource value: 0x7f010007
-			public static int rvZoom = 2130771975;
+			public static int rv_ripplePadding = 2130771975;
+			
+			// aapt resource value: 0x7f010006
+			public static int rv_type = 2130771974;
+			
+			// aapt resource value: 0x7f010008
+			public static int rv_zoom = 2130771976;
 			
 			// aapt resource value: 0x7f010003
-			public static int rvZoomDuration = 2130771971;
+			public static int rv_zoomDuration = 2130771971;
 			
 			static Attribute()
 			{
@@ -115,6 +118,9 @@ namespace Cheesebaron.RippleEffect
 			// aapt resource value: 0x7f040001
 			public static int doubleRipple = 2130968577;
 			
+			// aapt resource value: 0x7f040002
+			public static int rectangle = 2130968578;
+			
 			// aapt resource value: 0x7f040000
 			public static int simpleRipple = 2130968576;
 			
@@ -139,31 +145,35 @@ namespace Cheesebaron.RippleEffect
 					2130771972,
 					2130771973,
 					2130771974,
-					2130771975};
+					2130771975,
+					2130771976};
 			
 			// aapt resource value: 0
-			public static int RippleView_rvAlpha = 0;
+			public static int RippleView_rv_alpha = 0;
 			
 			// aapt resource value: 5
-			public static int RippleView_rvCentered = 5;
+			public static int RippleView_rv_centered = 5;
 			
 			// aapt resource value: 4
-			public static int RippleView_rvColor = 4;
+			public static int RippleView_rv_color = 4;
 			
 			// aapt resource value: 1
-			public static int RippleView_rvFramerate = 1;
+			public static int RippleView_rv_framerate = 1;
 			
 			// aapt resource value: 2
-			public static int RippleView_rvRippleDuration = 2;
-			
-			// aapt resource value: 6
-			public static int RippleView_rvType = 6;
+			public static int RippleView_rv_rippleDuration = 2;
 			
 			// aapt resource value: 7
-			public static int RippleView_rvZoom = 7;
+			public static int RippleView_rv_ripplePadding = 7;
+			
+			// aapt resource value: 6
+			public static int RippleView_rv_type = 6;
+			
+			// aapt resource value: 8
+			public static int RippleView_rv_zoom = 8;
 			
 			// aapt resource value: 3
-			public static int RippleView_rvZoomDuration = 3;
+			public static int RippleView_rv_zoomDuration = 3;
 			
 			static Styleable()
 			{

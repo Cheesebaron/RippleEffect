@@ -58,6 +58,9 @@ namespace Cheesebaron.RippleEffect
         private Paint _paint;
         private Bitmap _originBitmap;
         private Color _rippleColor;
+        private View _childView;
+        private int _ripplePadding;
+        private GestureDetector _gestureDetector;
 
         protected RippleView(IntPtr javaReference, JniHandleOwnership transfer) 
             : base(javaReference, transfer) { }
@@ -77,17 +80,18 @@ namespace Cheesebaron.RippleEffect
         private void Init(Context context, IAttributeSet attrs)
         {
             var a = context.ObtainStyledAttributes(attrs, Resource.Styleable.RippleView);
-            _rippleColor = a.GetColor(Resource.Styleable.RippleView_rvColor,
+            _rippleColor = a.GetColor(Resource.Styleable.RippleView_rv_color,
                 Resources.GetColor(Resource.Color.__rippleViewDefaultColor));
-            _rippleType = a.GetInt(Resource.Styleable.RippleView_rvType, 0);
-            _hasToZoom = a.GetBoolean(Resource.Styleable.RippleView_rvZoom, false);
-            _isCentered = a.GetBoolean(Resource.Styleable.RippleView_rvCentered, false);
-            _duration = a.GetInt(Resource.Styleable.RippleView_rvRippleDuration, _duration);
-            _frameRate = a.GetInt(Resource.Styleable.RippleView_rvFramerate, _frameRate);
-            _paintAlpha = a.GetInt(Resource.Styleable.RippleView_rvAlpha, _paintAlpha);
+            _rippleType = a.GetInt(Resource.Styleable.RippleView_rv_type, 0);
+            _hasToZoom = a.GetBoolean(Resource.Styleable.RippleView_rv_zoom, false);
+            _isCentered = a.GetBoolean(Resource.Styleable.RippleView_rv_centered, false);
+            _duration = a.GetInt(Resource.Styleable.RippleView_rv_rippleDuration, _duration);
+            _frameRate = a.GetInt(Resource.Styleable.RippleView_rv_framerate, _frameRate);
+            _paintAlpha = a.GetInt(Resource.Styleable.RippleView_rv_alpha, _paintAlpha);
+            _ripplePadding = a.GetDimensionPixelSize(Resource.Styleable.RippleView_rv_ripplePadding, 0);
             _canvasHandler = new Handler();
             _scaleAnimation = AnimationUtils.LoadAnimation(context, Resource.Animation.zoom);
-            _scaleAnimation.Duration = a.GetInt(Resource.Styleable.RippleView_rvZoomDuration, 150);
+            _scaleAnimation.Duration = a.GetInt(Resource.Styleable.RippleView_rv_zoomDuration, 150);
             _paint = new Paint(PaintFlags.AntiAlias);
             _paint.SetStyle(Paint.Style.Fill);
             _paint.Color = _rippleColor;
@@ -95,8 +99,16 @@ namespace Cheesebaron.RippleEffect
 
             a.Recycle();
 
+            _gestureDetector = new GestureDetector(context, new RippleGestureDetector());
+
             SetWillNotDraw(false);
             DrawingCacheEnabled = true;
+        }
+
+        public override void AddView(View child, int index, ViewGroup.LayoutParams @params)
+        {
+            _childView = child;
+            base.AddView(child, index, @params);
         }
 
         public override void Draw(Canvas canvas)
@@ -154,41 +166,52 @@ namespace Cheesebaron.RippleEffect
                 _paint.Alpha = (int)(_paintAlpha - (_paintAlpha * (((float)_timerEmpty * _frameRate) / _duration)));
         }
 
-        protected override void OnMeasure(int widthMeasureSpec, int heightMeasureSpec)
+        protected override void OnSizeChanged(int w, int h, int oldw, int oldh)
         {
-            _width = MeasureSpec.GetSize(widthMeasureSpec);
-            _height = MeasureSpec.GetSize(heightMeasureSpec);
-            SetMeasuredDimension(_width, _height);
-            base.OnMeasure(widthMeasureSpec, heightMeasureSpec);
+            base.OnSizeChanged(w, h, oldw, oldh);
+            _width = w;
+            _height = h;
+        }
+
+        public override bool OnTouchEvent(MotionEvent ev)
+        {
+            if (_gestureDetector.OnTouchEvent(ev) && !_animationRunning)
+            {
+                if (_hasToZoom)
+                    StartAnimation(_scaleAnimation);
+
+                _radiusMax = Math.Max(_width, _height);
+
+                if (_rippleType != 2)
+                    _radiusMax /= 2;
+
+                _radiusMax -= _ripplePadding;
+
+                if (_isCentered || _rippleType == 1)
+                {
+                    _x = MeasuredHeight / 2;
+                    _y = MeasuredWidth / 2;
+                }
+                else
+                {
+                    _x = ev.GetX();
+                    _y = ev.GetY();
+                }
+                _animationRunning = true;
+
+                if (_rippleType == 1 && _originBitmap == null)
+                    _originBitmap = GetDrawingCache(true);
+
+                Invalidate();
+            }
+
+            _childView.OnTouchEvent(ev);
+            return true;
         }
 
         public override bool OnInterceptTouchEvent(MotionEvent ev)
         {
-            if (_animationRunning)
-                return base.OnInterceptTouchEvent(ev);
-
-            if (_hasToZoom)
-                StartAnimation(_scaleAnimation);
-
-            _radiusMax = Math.Max(_width, _height) / 2f;
-            if (_isCentered || _rippleType == 1)
-            {
-                _x = MeasuredHeight / 2;
-                _y = MeasuredWidth / 2;
-            }
-            else
-            {
-                _x = ev.GetX();
-                _y = ev.GetY();
-            }
-            _animationRunning = true;
-
-            if (_rippleType == 1 && _originBitmap == null)
-                _originBitmap = GetDrawingCache(true);
-
-            Invalidate();
-
-            return base.OnInterceptTouchEvent(ev);
+            return true;
         }
 
         private Bitmap GetCircleBitmap(int radius)
@@ -205,6 +228,19 @@ namespace Cheesebaron.RippleEffect
                 canvas.DrawBitmap(_originBitmap, rect, rect, paint);
 
                 return output;
+            }
+        }
+
+        private class RippleGestureDetector : GestureDetector.SimpleOnGestureListener
+        {
+            public override bool OnSingleTapConfirmed(MotionEvent e)
+            {
+                return true;
+            }
+
+            public override bool OnSingleTapUp(MotionEvent e)
+            {
+                return true;
             }
         }
     }

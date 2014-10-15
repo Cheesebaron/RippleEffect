@@ -1,0 +1,3 @@
+[submodule "submodules/FloatingActionButton"]
+	path = submodules/FloatingActionButton
+	url = git@github.com:Cheesebaron/FloatingActionButton.git

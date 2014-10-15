@@ -41,6 +41,9 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DK.Ostebaronen.FloatingActionButton">
+      <HintPath>..\submodules\FloatingActionButton\FloatingActionButton\bin\Debug\DK.Ostebaronen.FloatingActionButton.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
