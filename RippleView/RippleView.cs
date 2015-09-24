@@ -146,11 +146,13 @@ namespace Cheesebaron.RippleEffect
 
 			_paint.Color = Resources.GetColor (Android.Resource.Color.HoloRedLight);
 
+			if (_rippleType == 1 && _originBitmap != null && (((float)_timer * _frameRate) / _duration) > 0.4f) {
 				if (_durationEmpty == -1)
 					_durationEmpty = _duration - _timer * _frameRate;
 
 				_timerEmpty++;
 				using (var tmpBitmap = GetCircleBitmap ((int)(_paintAlpha - ((_paintAlpha) *
+				                                   (((float)_timerEmpty * _frameRate) / (_durationEmpty)))))) {
 					canvas.DrawBitmap (tmpBitmap, 0, 0, _paint);
 					tmpBitmap.Recycle ();
 				}
