@@ -35,7 +35,7 @@ using Android.Widget;
 
 namespace Cheesebaron.RippleEffect
 {
-    public class RippleView 
+    public class RippleView
         : RelativeLayout
     {
 		public event EventHandler OnCompletition;
@@ -66,16 +66,16 @@ namespace Cheesebaron.RippleEffect
         private int _ripplePadding;
         private GestureDetector _gestureDetector;
 
-        protected RippleView(IntPtr javaReference, JniHandleOwnership transfer) 
+        protected RippleView(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer) { }
 
-        public RippleView(Context context) 
+        public RippleView(Context context)
             : base(context) { }
 
-        public RippleView(Context context, IAttributeSet attrs) 
+        public RippleView(Context context, IAttributeSet attrs)
             : this(context, attrs, 0) { }
 
-        public RippleView(Context context, IAttributeSet attrs, int defStyle) 
+        public RippleView(Context context, IAttributeSet attrs, int defStyle)
             : base(context, attrs, defStyle)
         {
             Init(context, attrs);
@@ -88,7 +88,7 @@ namespace Cheesebaron.RippleEffect
 
             var a = context.ObtainStyledAttributes(attrs, Resource.Styleable.RippleView);
             _rippleColor = a.GetColor(Resource.Styleable.RippleView_rv_color,
-                Resources.GetColor(Resource.Color.__rippleViewDefaultColor));
+				Resources.GetColor(Resource.Color.__rippleViewDefaultColor));
             _rippleType = a.GetInt(Resource.Styleable.RippleView_rv_type, 0);
             _hasToZoom = a.GetBoolean(Resource.Styleable.RippleView_rv_zoom, false);
             _isCentered = a.GetBoolean(Resource.Styleable.RippleView_rv_centered, false);
@@ -137,7 +137,7 @@ namespace Cheesebaron.RippleEffect
 					OnCompletition (this, new EventArgs ());
                 return;
             }
-            
+
             _canvasHandler.PostDelayed(Invalidate, _frameRate);
 
             if (_timer == 0)
@@ -153,7 +153,7 @@ namespace Cheesebaron.RippleEffect
                     _durationEmpty = _duration - _timer * _frameRate;
 
                 _timerEmpty++;
-                using (var tmpBitmap = GetCircleBitmap((int) (_paintAlpha - ((_paintAlpha) * 
+                using (var tmpBitmap = GetCircleBitmap((int) (_paintAlpha - ((_paintAlpha) *
                         (((float) _timerEmpty * _frameRate) / (_durationEmpty))))))
                 {
                     canvas.DrawBitmap(tmpBitmap, 0, 0, _paint);
@@ -192,39 +192,39 @@ namespace Cheesebaron.RippleEffect
 		public void AnimateRipple(MotionEvent ev) {
 			CreateAnimation(ev.GetX(), ev.GetY());
 		}
-			
+
 		public void animateRipple(float x, float y) {
 			CreateAnimation(x, y);
 		}
-			
-		private void CreateAnimation(float x, float y) {
-			if (Enabled && !_animationRunning) 
-			{
-				if (_hasToZoom)
-					StartAnimation(_scaleAnimation);
 
-				_radiusMax = Math.Max(_width, _height);
+		private void CreateAnimation(float x, float y)
+		{
+			if (!Enabled || _animationRunning) return;
 
-				if (_rippleType != 2)
-					_radiusMax /= 2;
+			if (_hasToZoom)
+				StartAnimation(_scaleAnimation);
 
-				_radiusMax -= _ripplePadding;
+			_radiusMax = Math.Max(_width, _height);
 
-				if (_isCentered || _rippleType == 1) {
-					_x = MeasuredHeight / 2;
-					_y = MeasuredWidth / 2;
-				} else {
-					_x = x;
-					_y = y;
-				}
+			if (_rippleType != 2)
+				_radiusMax /= 2;
 
-				_animationRunning = true;
+			_radiusMax -= _ripplePadding;
 
-				if (_rippleType == 1 && _originBitmap == null)
-					_originBitmap = GetDrawingCache(true);
-
-				Invalidate();
+			if (_isCentered || _rippleType == 1) {
+				_x = MeasuredHeight / 2;
+				_y = MeasuredWidth / 2;
+			} else {
+				_x = x;
+				_y = y;
 			}
+
+			_animationRunning = true;
+
+			if (_rippleType == 1 && _originBitmap == null)
+				_originBitmap = GetDrawingCache(true);
+
+			Invalidate();
 		}
 
         public override bool OnTouchEvent(MotionEvent ev)
@@ -244,7 +244,8 @@ namespace Cheesebaron.RippleEffect
 			return false;
         }
 
-		private void SendClickEvent(bool isLongClick) {
+		private void SendClickEvent(bool isLongClick)
+		{
 			if (Parent is AdapterView) {
 				AdapterView adapterView = (AdapterView) Parent;
 				int position = adapterView.GetPositionForView(this);
@@ -298,7 +299,7 @@ namespace Cheesebaron.RippleEffect
             public override bool OnSingleTapUp(MotionEvent e)
             {
                 return true;
-            }		
-        }			
+            }
+        }
     }
 }
